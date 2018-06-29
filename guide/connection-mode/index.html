@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vuex-ORM GraphQL Plugin | Connection Mode</title>
+    <meta name="description" content="Vue + Vuex-ORM + GraphQL = &lt;3">
+    
+    
+    <link rel="preload" href="/vuex-orm-graphql/assets/css/15.styles.d2dc8f35.css" as="style"><link rel="preload" href="/vuex-orm-graphql/assets/js/app.771954e2.js" as="script"><link rel="preload" href="/vuex-orm-graphql/assets/js/12.d11a4ffa.js" as="script"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/8.327cd365.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/1.73445dd3.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/2.75745038.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/3.fdbb96f5.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/4.862f292d.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/5.2ddccdc5.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/6.a1e53d7b.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/7.fe492acd.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/0.deb3bd5d.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/9.5ac8cfd9.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/10.d14c2b78.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/11.9823bc74.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/13.0c4d94ca.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/14.3fd74dca.js">
+    <link rel="stylesheet" href="/vuex-orm-graphql/assets/css/15.styles.d2dc8f35.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/vuex-orm-graphql/" class="home-link router-link-active"><!----><span class="site-name">
+      Vuex-ORM GraphQL Plugin
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/vuex-orm-graphql/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vuex-orm-graphql/guide/" class="nav-link router-link-active">Guide</a></div><div class="nav-item"><a href="https://vuex-orm.github.io/vuex-orm/" target="_blank" rel="noopener noreferrer" class="nav-link">Vuex-ORM</a></div><div class="nav-item"><a href="https://github.com/vuex-orm/vuex-orm-graphql" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuex-orm-graphql/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vuex-orm-graphql/guide/" class="nav-link router-link-active">Guide</a></div><div class="nav-item"><a href="https://vuex-orm.github.io/vuex-orm/" target="_blank" rel="noopener noreferrer" class="nav-link">Vuex-ORM</a></div><div class="nav-item"><a href="https://github.com/vuex-orm/vuex-orm-graphql" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a></div><!----></nav><ul class="sidebar-links"><li><a href="/vuex-orm-graphql/guide/" class="sidebar-link">Introduction</a></li><li><a href="/vuex-orm-graphql/guide/setup/" class="sidebar-link">Setup</a></li><li><a href="/vuex-orm-graphql/guide/graphql/" class="sidebar-link">GraphQL Schema</a></li><li><a href="/vuex-orm-graphql/guide/fetch/" class="sidebar-link">fetch</a></li><li><a href="/vuex-orm-graphql/guide/persist/" class="sidebar-link">persist</a></li><li><a href="/vuex-orm-graphql/guide/push/" class="sidebar-link">push</a></li><li><a href="/vuex-orm-graphql/guide/destroy/" class="sidebar-link">destroy</a></li><li><a href="/vuex-orm-graphql/guide/connection-mode/" class="active sidebar-link">Connection Mode</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/connection-mode/#automatic-detection" class="sidebar-link">Automatic detection</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/connection-mode/#manual-setting" class="sidebar-link">Manual setting</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/connection-mode/#mode-1-nodes" class="sidebar-link">Mode 1: `nodes`</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/connection-mode/#mode-2-edges" class="sidebar-link">Mode 2: `edges`</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/connection-mode/#mode-3-plain" class="sidebar-link">Mode 3: `plain`</a></li></ul></li><li><a href="/vuex-orm-graphql/guide/custom-queries/" class="sidebar-link">Custom Queries and Mutations</a></li><li><a href="/vuex-orm-graphql/guide/relationships/" class="sidebar-link">Relationships</a></li><li><a href="/vuex-orm-graphql/guide/eager-loading/" class="sidebar-link">Eager Loading</a></li><li><a href="/vuex-orm-graphql/guide/virtual-fields/" class="sidebar-link">Virtual Fields</a></li><li><a href="/vuex-orm-graphql/guide/meta-fields/" class="sidebar-link">Meta Fields</a></li><li><a href="/vuex-orm-graphql/guide/faq/" class="sidebar-link">Frequently Asked Questions</a></li></ul></div><div class="page"><div class="content"><h1 id="connection-mode"><a href="#connection-mode" aria-hidden="true" class="header-anchor">#</a> Connection Mode</h1><p></p><div class="table-of-contents"><ul><li><a href="#automatic-detection">Automatic detection</a></li><li><a href="#manual-setting">Manual setting</a></li><li><a href="#mode-1-nodes">Mode 1: `nodes`</a></li><li><a href="#mode-2-edges">Mode 2: `edges`</a></li><li><a href="#mode-3-plain">Mode 3: `plain`</a></li></ul></div><p></p><p>It seems that there are several standards within the GraphQL community how connections (fields that returns multiple
+records) are designed. Some do this via a <code>nodes</code> field, some via a <code>edges { nodes }</code> query and some do neither of them.
+Vuex-ORM-GraphQL tries to be flexible and supports all of them, but the example queries in the documentation work with
+the <code>nodes</code> query, don't be irritated.</p><h2 id="automatic-detection"><a href="#automatic-detection" aria-hidden="true" class="header-anchor">#</a> Automatic detection</h2><p>The plugin will try to detect automatically which mode should be used by analyzing the GraphQL Schema. In the best
+case you don't have to bother with this at all.</p><h2 id="manual-setting"><a href="#manual-setting" aria-hidden="true" class="header-anchor">#</a> Manual setting</h2><p>In rare cases the automatic detection might fail or report the wrong mode. In this case, you can manually set the
+<code>connectionQueryMode</code> config param to either <code>auto</code> (default), <code>nodes</code>, <code>edges</code>, <code>plain</code>. The modes and the resulting
+queries are explained in the next sections.</p><h2 id="mode-1-nodes"><a href="#mode-1-nodes" aria-hidden="true" class="header-anchor">#</a> Mode 1: <code>nodes</code></h2><p>This is the preferred mode and used for the example queries in this documentation. Setting the connection mode to
+<code>nodes</code> (or letting the plugin auto detect this mode) will lead to the following query when calling <code>User.fetch()</code>:</p><pre class="language-text"><code>query Users {
+  users {
+    nodes {
+      id
+      email
+      name
+    }
+  }
+}
+</code></pre><h2 id="mode-2-edges"><a href="#mode-2-edges" aria-hidden="true" class="header-anchor">#</a> Mode 2: <code>edges</code></h2><p>This mode uses a <code>edges</code> not to query the edge an then query the <code>node</code> within that edge:</p><pre class="language-text"><code>query Users {
+  users {
+    edges {
+      node {
+        id
+        email
+        name
+      }
+    }
+  }
+}
+</code></pre><h2 id="mode-3-plain"><a href="#mode-3-plain" aria-hidden="true" class="header-anchor">#</a> Mode 3: <code>plain</code></h2><p>The third mode is the less preferred one due to the lack of meta information. In this case we just plain pass the field
+queries:</p><pre class="language-text"><code>query Users {
+  users {
+    id
+    email
+    name
+  }
+}
+</code></pre></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/vuex-orm-graphql/guide/destroy/" class="prev">
+          destroy
+        </a></span><span class="next"><a href="/vuex-orm-graphql/guide/custom-queries/">
+          Custom Queries and Mutations
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/vuex-orm-graphql/assets/js/12.d11a4ffa.js" defer></script><script src="/vuex-orm-graphql/assets/js/app.771954e2.js" defer></script>
+  </body>
+</html>

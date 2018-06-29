@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vuex-ORM GraphQL Plugin | Relationships</title>
+    <meta name="description" content="Vue + Vuex-ORM + GraphQL = &lt;3">
+    
+    
+    <link rel="preload" href="/vuex-orm-graphql/assets/css/15.styles.d2dc8f35.css" as="style"><link rel="preload" href="/vuex-orm-graphql/assets/js/app.771954e2.js" as="script"><link rel="preload" href="/vuex-orm-graphql/assets/js/2.75745038.js" as="script"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/8.327cd365.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/1.73445dd3.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/3.fdbb96f5.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/4.862f292d.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/5.2ddccdc5.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/6.a1e53d7b.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/7.fe492acd.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/0.deb3bd5d.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/9.5ac8cfd9.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/10.d14c2b78.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/11.9823bc74.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/12.d11a4ffa.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/13.0c4d94ca.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/14.3fd74dca.js">
+    <link rel="stylesheet" href="/vuex-orm-graphql/assets/css/15.styles.d2dc8f35.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/vuex-orm-graphql/" class="home-link router-link-active"><!----><span class="site-name">
+      Vuex-ORM GraphQL Plugin
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/vuex-orm-graphql/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vuex-orm-graphql/guide/" class="nav-link router-link-active">Guide</a></div><div class="nav-item"><a href="https://vuex-orm.github.io/vuex-orm/" target="_blank" rel="noopener noreferrer" class="nav-link">Vuex-ORM</a></div><div class="nav-item"><a href="https://github.com/vuex-orm/vuex-orm-graphql" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuex-orm-graphql/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vuex-orm-graphql/guide/" class="nav-link router-link-active">Guide</a></div><div class="nav-item"><a href="https://vuex-orm.github.io/vuex-orm/" target="_blank" rel="noopener noreferrer" class="nav-link">Vuex-ORM</a></div><div class="nav-item"><a href="https://github.com/vuex-orm/vuex-orm-graphql" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a></div><!----></nav><ul class="sidebar-links"><li><a href="/vuex-orm-graphql/guide/" class="sidebar-link">Introduction</a></li><li><a href="/vuex-orm-graphql/guide/setup/" class="sidebar-link">Setup</a></li><li><a href="/vuex-orm-graphql/guide/graphql/" class="sidebar-link">GraphQL Schema</a></li><li><a href="/vuex-orm-graphql/guide/fetch/" class="sidebar-link">fetch</a></li><li><a href="/vuex-orm-graphql/guide/persist/" class="sidebar-link">persist</a></li><li><a href="/vuex-orm-graphql/guide/push/" class="sidebar-link">push</a></li><li><a href="/vuex-orm-graphql/guide/destroy/" class="sidebar-link">destroy</a></li><li><a href="/vuex-orm-graphql/guide/connection-mode/" class="sidebar-link">Connection Mode</a></li><li><a href="/vuex-orm-graphql/guide/custom-queries/" class="sidebar-link">Custom Queries and Mutations</a></li><li><a href="/vuex-orm-graphql/guide/relationships/" class="active sidebar-link">Relationships</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/relationships/#one-to-one" class="sidebar-link">One To One</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/relationships/#one-to-many" class="sidebar-link">One To Many</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/relationships/#many-to-many" class="sidebar-link">Many To Many</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/relationships/#has-many-through" class="sidebar-link">Has Many Through</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/relationships/#polymorphic-relations" class="sidebar-link">Polymorphic Relations</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/relationships/#many-to-many-polymorphic-relations" class="sidebar-link">Many To Many Polymorphic Relations</a></li></ul></li><li><a href="/vuex-orm-graphql/guide/eager-loading/" class="sidebar-link">Eager Loading</a></li><li><a href="/vuex-orm-graphql/guide/virtual-fields/" class="sidebar-link">Virtual Fields</a></li><li><a href="/vuex-orm-graphql/guide/meta-fields/" class="sidebar-link">Meta Fields</a></li><li><a href="/vuex-orm-graphql/guide/faq/" class="sidebar-link">Frequently Asked Questions</a></li></ul></div><div class="page"><div class="content"><h1 id="relationships"><a href="#relationships" aria-hidden="true" class="header-anchor">#</a> Relationships</h1><p></p><div class="table-of-contents"><ul><li><a href="#one-to-one">One To One</a></li><li><a href="#one-to-many">One To Many</a></li><li><a href="#many-to-many">Many To Many</a></li><li><a href="#has-many-through">Has Many Through</a></li><li><a href="#polymorphic-relations">Polymorphic Relations</a></li><li><a href="#many-to-many-polymorphic-relations">Many To Many Polymorphic Relations</a></li></ul></div><p></p><p>This chapter describes how the GraphQL-Plugin interacts with relationships. All relationships work out of the box.
+We take the examples from the <a href="https://vuex-orm.github.io/vuex-orm/relationships/defining-relationships.html" target="_blank" rel="noopener noreferrer">Vuex-ORM documentation for definition relationships</a>
+and show what GraphQL queries will be generated.</p><h2 id="one-to-one"><a href="#one-to-one" aria-hidden="true" class="header-anchor">#</a> One To One</h2><div class="tip custom-block"><p class="custom-block-title">TIP</p><p>See the <a href="https://vuex-orm.github.io/vuex-orm/relationships/defining-relationships.html#one-to-one" target="_blank" rel="noopener noreferrer">One To One section</a> in the Vuex-ORM documentation.</p></div><p>Is eager loaded automatically.</p><p><strong>Models:</strong></p><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Profile</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'profiles'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      age<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      sex<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      userId<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      user<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">belongsTo</span><span class="token punctuation">(</span>User<span class="token punctuation">,</span> <span class="token string">'userID'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'users'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      profile<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hasOne</span><span class="token punctuation">(</span>Profile<span class="token punctuation">,</span> <span class="token string">'userId'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre><p><strong>Fetch Query for User:</strong></p><pre class="language-graphql"><code><span class="token keyword">query</span> Users <span class="token punctuation">{</span>
+  users <span class="token punctuation">{</span>
+    nodes <span class="token punctuation">{</span>
+      id
+      name
+    
+      profile <span class="token punctuation">{</span>
+        id
+        age
+        sex
+        userId
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Fetch Query for Profile:</strong></p><pre class="language-graphql"><code><span class="token keyword">query</span> Profiles <span class="token punctuation">{</span>
+  profiles <span class="token punctuation">{</span>
+    nodes <span class="token punctuation">{</span>
+      id
+      age
+      sex
+      userId
+      
+      user <span class="token punctuation">{</span>
+        id
+        name
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="one-to-many"><a href="#one-to-many" aria-hidden="true" class="header-anchor">#</a> One To Many</h2><div class="tip custom-block"><p class="custom-block-title">TIP</p><p>See the <a href="https://vuex-orm.github.io/vuex-orm/relationships/defining-relationships.html#one-to-many" target="_blank" rel="noopener noreferrer">One To Many section</a> in the Vuex-ORM documentation.</p></div><p>BelongsTo is eager loaded automatically while HasMany is not eager loaded.</p><p><strong>Models:</strong></p><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Comment</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'comments'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      postId<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      content<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      post<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">belongsTo</span><span class="token punctuation">(</span>Post<span class="token punctuation">,</span> <span class="token string">'postId'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Post</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'posts'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      content<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      comments<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hasMany</span><span class="token punctuation">(</span>Comment<span class="token punctuation">,</span> <span class="token string">'postId'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Fetch Query for Comment:</strong></p><pre class="language-graphql"><code><span class="token keyword">query</span> Comments <span class="token punctuation">{</span>
+  comments <span class="token punctuation">{</span>
+    nodes <span class="token punctuation">{</span>
+      id
+      postId
+      content
+    
+      post <span class="token punctuation">{</span>
+        id
+        content
+        title
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>As you can see the post is eager loaded.</p><p><strong>Fetch Query for Post:</strong></p><pre class="language-graphql"><code><span class="token keyword">query</span> Posts <span class="token punctuation">{</span>
+  posts <span class="token punctuation">{</span>
+    nodes <span class="token punctuation">{</span>
+      id
+      content
+      title
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>As you can see the comments are not eager loaded.</p><h2 id="many-to-many"><a href="#many-to-many" aria-hidden="true" class="header-anchor">#</a> Many To Many</h2><div class="tip custom-block"><p class="custom-block-title">TIP</p><p>See the <a href="https://vuex-orm.github.io/vuex-orm/relationships/defining-relationships.html#many-to-many" target="_blank" rel="noopener noreferrer">Many To Many section</a> in the Vuex-ORM documentation.</p></div><p>Is NOT eager loaded automatically, so we add a eagerLoad field to User.</p><p><strong>Models:</strong></p><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'users'</span><span class="token punctuation">;</span>
+  <span class="token keyword">static</span> eagerLoad <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'roles'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      email<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      roles<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">belongsToMany</span><span class="token punctuation">(</span>Role<span class="token punctuation">,</span> RoleUser<span class="token punctuation">,</span> <span class="token string">'userId'</span><span class="token punctuation">,</span> <span class="token string">'roleId'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Role</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'roles'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      users<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">belongsToMany</span><span class="token punctuation">(</span>User<span class="token punctuation">,</span> RoleUser<span class="token punctuation">,</span> <span class="token string">'roleId'</span><span class="token punctuation">,</span> <span class="token string">'userId'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">RoleUser</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'roleUser'</span><span class="token punctuation">;</span>
+  <span class="token keyword">static</span> primaryKey <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'roleId'</span><span class="token punctuation">,</span> <span class="token string">'userId'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      roleId<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      userId<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Fetch Query for User:</strong></p><pre class="language-graphql"><code><span class="token keyword">query</span> Users <span class="token punctuation">{</span>
+  users <span class="token punctuation">{</span>
+    nodes <span class="token punctuation">{</span>
+      id
+      email
+      
+      roles <span class="token punctuation">{</span>
+        nodes <span class="token punctuation">{</span>
+          id
+          name
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Roles are eager loaded because of the <code>eagerLoad</code> definition in the <code>User</code> model.</p><p><strong>Fetch Query for Role:</strong></p><pre class="language-graphql"><code><span class="token keyword">query</span> Roles <span class="token punctuation">{</span>
+  roles <span class="token punctuation">{</span>
+    nodes <span class="token punctuation">{</span>
+      id
+      name
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="has-many-through"><a href="#has-many-through" aria-hidden="true" class="header-anchor">#</a> Has Many Through</h2><div class="tip custom-block"><p class="custom-block-title">TIP</p><p>See the <a href="https://vuex-orm.github.io/vuex-orm/relationships/defining-relationships.html#has-many-through" target="_blank" rel="noopener noreferrer">Has Any Through section</a> in the Vuex-ORM documentation.</p></div><p>Is NOT eager loaded automatically.</p><p>In this example we have a Product which can belong to many ProductGroups. And a ProductGroup can have many Products.
+This is a classical n:m relation type, which we setup via HasManyThrough and a Pivot Model (ProductsProductGroup)</p><p><strong>Models:</strong></p><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Country</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'countries'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      users<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hasMany</span><span class="token punctuation">(</span>User<span class="token punctuation">,</span> <span class="token string">'countryId'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      posts<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hasManyThrough</span><span class="token punctuation">(</span>Post<span class="token punctuation">,</span> User<span class="token punctuation">,</span> <span class="token string">'countryId'</span><span class="token punctuation">,</span> <span class="token string">'userId'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'users'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      email<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      countryId<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      country<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">belongsTo</span><span class="token punctuation">(</span>Country<span class="token punctuation">,</span> <span class="token string">'countryId'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      posts<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hasMany</span><span class="token punctuation">(</span>Post<span class="token punctuation">,</span> <span class="token string">'userId'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Post</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'posts'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      content<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      userId<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      user<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">belongsTo</span><span class="token punctuation">(</span>User<span class="token punctuation">,</span> <span class="token string">'userId'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Fetch Query for Country:</strong></p><pre class="language-graphql"><code><span class="token keyword">query</span> Countries <span class="token punctuation">{</span>
+  countries <span class="token punctuation">{</span>
+    nodes <span class="token punctuation">{</span>
+      id
+      name
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Fetch Query for User:</strong></p><pre class="language-graphql"><code><span class="token keyword">query</span> Users <span class="token punctuation">{</span>
+  users <span class="token punctuation">{</span>
+    nodes <span class="token punctuation">{</span>
+      id
+      email
+      countryId
+      
+      country <span class="token punctuation">{</span>
+        id
+        name
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Fetch Query for Post:</strong></p><pre class="language-graphql"><code><span class="token keyword">query</span> Posts <span class="token punctuation">{</span>
+  posts <span class="token punctuation">{</span>
+    nodes <span class="token punctuation">{</span>
+      id
+      title
+      content
+      
+      user <span class="token punctuation">{</span>
+        id
+        email
+        countryId
+        
+        country <span class="token punctuation">{</span>
+          id
+          name
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="polymorphic-relations"><a href="#polymorphic-relations" aria-hidden="true" class="header-anchor">#</a> Polymorphic Relations</h2><div class="tip custom-block"><p class="custom-block-title">TIP</p><p>See the <a href="https://vuex-orm.github.io/vuex-orm/relationships/defining-relationships.html#polymorphic-relations" target="_blank" rel="noopener noreferrer">Polymorphic Relations section</a> in the Vuex-ORM documentation.</p></div><p>Eager loading behaves like in a normal One To Many or One to One. So we add a <code>eagerLoad</code> field to make sure the
+comments are loaded automatically with the post or video.</p><p><strong>Models:</strong></p><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Post</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'posts'</span><span class="token punctuation">;</span>
+  <span class="token keyword">static</span> eagerLoad <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'comments'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      content<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      comments<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">morphMany</span><span class="token punctuation">(</span>Comment<span class="token punctuation">,</span> <span class="token string">'commentableId'</span><span class="token punctuation">,</span> <span class="token string">'commentableType'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Video</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'videos'</span><span class="token punctuation">;</span>
+  <span class="token keyword">static</span> eagerLoad <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'comments'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      url<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      comments<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">morphMany</span><span class="token punctuation">(</span>Comment<span class="token punctuation">,</span> <span class="token string">'commentableId'</span><span class="token punctuation">,</span> <span class="token string">'commentableType'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Comment</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'comments'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      content<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      commentableId<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      commentableType<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Fetch Query for Post (or Video):</strong></p><pre class="language-graphql"><code><span class="token keyword">query</span> Posts <span class="token punctuation">{</span>
+  posts <span class="token punctuation">{</span>
+    nodes <span class="token punctuation">{</span>
+      id
+      title
+      content
+      
+      comments <span class="token punctuation">{</span>
+        nodes <span class="token punctuation">{</span>
+          id
+          content
+          commentableId
+          commentableType
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="many-to-many-polymorphic-relations"><a href="#many-to-many-polymorphic-relations" aria-hidden="true" class="header-anchor">#</a> Many To Many Polymorphic Relations</h2><div class="tip custom-block"><p class="custom-block-title">TIP</p><p>See the <a href="https://vuex-orm.github.io/vuex-orm/relationships/defining-relationships.html#many-to-many-polymorphic-relations" target="_blank" rel="noopener noreferrer">Many To Many Polymorphic Relations section</a> in the Vuex-ORM documentation.</p></div><p>Eager loading behaves the same as in a normal Many To Many: Nothing is eager loaded automatically. So we add a
+<code>eagerLoad</code> field to make sure the tags are loaded automatically with the post or video.</p><p><strong>Models:</strong></p><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Post</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'posts'</span><span class="token punctuation">;</span>
+  <span class="token keyword">static</span> eagerLoad <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'tags'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      content<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      tags<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">morphToMany</span><span class="token punctuation">(</span>Tag<span class="token punctuation">,</span> Taggable<span class="token punctuation">,</span> <span class="token string">'tagId'</span><span class="token punctuation">,</span> <span class="token string">'taggableId'</span><span class="token punctuation">,</span> <span class="token string">'taggableType'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Video</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'videos'</span><span class="token punctuation">;</span>
+  <span class="token keyword">static</span> eagerLoad <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'tags'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      url<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      tags<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">morphToMany</span><span class="token punctuation">(</span>Tag<span class="token punctuation">,</span> Taggable<span class="token punctuation">,</span> <span class="token string">'tagId'</span><span class="token punctuation">,</span> <span class="token string">'taggableId'</span><span class="token punctuation">,</span> <span class="token string">'taggableType'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Tag</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'tags'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Taggable</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> entity <span class="token operator">=</span> <span class="token string">'taggables'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">static</span> <span class="token function">fields</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      id<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      tagId<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      taggableId<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">number</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      taggableType<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>Fetch Query For Post (or Video):</strong></p><pre class="language-graphql"><code><span class="token keyword">query</span> Posts <span class="token punctuation">{</span>
+  posts <span class="token punctuation">{</span>
+    nodes <span class="token punctuation">{</span>
+      id
+      title
+      content
+      
+      tags <span class="token punctuation">{</span>
+        nodes <span class="token punctuation">{</span>
+          id
+          name
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/vuex-orm-graphql/guide/custom-queries/" class="prev">
+          Custom Queries and Mutations
+        </a></span><span class="next"><a href="/vuex-orm-graphql/guide/eager-loading/">
+          Eager Loading
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/vuex-orm-graphql/assets/js/2.75745038.js" defer></script><script src="/vuex-orm-graphql/assets/js/app.771954e2.js" defer></script>
+  </body>
+</html>

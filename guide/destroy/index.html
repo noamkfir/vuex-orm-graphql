@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vuex-ORM GraphQL Plugin | destroy</title>
+    <meta name="description" content="Vue + Vuex-ORM + GraphQL = &lt;3">
+    
+    
+    <link rel="preload" href="/vuex-orm-graphql/assets/css/15.styles.d2dc8f35.css" as="style"><link rel="preload" href="/vuex-orm-graphql/assets/js/app.771954e2.js" as="script"><link rel="preload" href="/vuex-orm-graphql/assets/js/10.d14c2b78.js" as="script"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/8.327cd365.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/1.73445dd3.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/2.75745038.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/3.fdbb96f5.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/4.862f292d.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/5.2ddccdc5.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/6.a1e53d7b.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/7.fe492acd.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/0.deb3bd5d.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/9.5ac8cfd9.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/11.9823bc74.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/12.d11a4ffa.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/13.0c4d94ca.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/14.3fd74dca.js">
+    <link rel="stylesheet" href="/vuex-orm-graphql/assets/css/15.styles.d2dc8f35.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/vuex-orm-graphql/" class="home-link router-link-active"><!----><span class="site-name">
+      Vuex-ORM GraphQL Plugin
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/vuex-orm-graphql/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vuex-orm-graphql/guide/" class="nav-link router-link-active">Guide</a></div><div class="nav-item"><a href="https://vuex-orm.github.io/vuex-orm/" target="_blank" rel="noopener noreferrer" class="nav-link">Vuex-ORM</a></div><div class="nav-item"><a href="https://github.com/vuex-orm/vuex-orm-graphql" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuex-orm-graphql/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vuex-orm-graphql/guide/" class="nav-link router-link-active">Guide</a></div><div class="nav-item"><a href="https://vuex-orm.github.io/vuex-orm/" target="_blank" rel="noopener noreferrer" class="nav-link">Vuex-ORM</a></div><div class="nav-item"><a href="https://github.com/vuex-orm/vuex-orm-graphql" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a></div><!----></nav><ul class="sidebar-links"><li><a href="/vuex-orm-graphql/guide/" class="sidebar-link">Introduction</a></li><li><a href="/vuex-orm-graphql/guide/setup/" class="sidebar-link">Setup</a></li><li><a href="/vuex-orm-graphql/guide/graphql/" class="sidebar-link">GraphQL Schema</a></li><li><a href="/vuex-orm-graphql/guide/fetch/" class="sidebar-link">fetch</a></li><li><a href="/vuex-orm-graphql/guide/persist/" class="sidebar-link">persist</a></li><li><a href="/vuex-orm-graphql/guide/push/" class="sidebar-link">push</a></li><li><a href="/vuex-orm-graphql/guide/destroy/" class="active sidebar-link">destroy</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/destroy/#destroy-2" class="sidebar-link">$destroy()</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/destroy/#deleteanddestroy" class="sidebar-link">$deleteAndDestroy()</a></li></ul></li><li><a href="/vuex-orm-graphql/guide/connection-mode/" class="sidebar-link">Connection Mode</a></li><li><a href="/vuex-orm-graphql/guide/custom-queries/" class="sidebar-link">Custom Queries and Mutations</a></li><li><a href="/vuex-orm-graphql/guide/relationships/" class="sidebar-link">Relationships</a></li><li><a href="/vuex-orm-graphql/guide/eager-loading/" class="sidebar-link">Eager Loading</a></li><li><a href="/vuex-orm-graphql/guide/virtual-fields/" class="sidebar-link">Virtual Fields</a></li><li><a href="/vuex-orm-graphql/guide/meta-fields/" class="sidebar-link">Meta Fields</a></li><li><a href="/vuex-orm-graphql/guide/faq/" class="sidebar-link">Frequently Asked Questions</a></li></ul></div><div class="page"><div class="content"><h1 id="destroy"><a href="#destroy" aria-hidden="true" class="header-anchor">#</a> destroy</h1><p></p><div class="table-of-contents"><ul><li><a href="#destroy">$destroy()</a></li><li><a href="#deleteanddestroy">$deleteAndDestroy()</a></li></ul></div><p></p><h2 id="destroy-2"><a href="#destroy-2" aria-hidden="true" class="header-anchor">#</a> $destroy()</h2><p>Last thing you can do with a record is to delete it on the server after deleting (<code>delete</code> action) it on the client via
+Vuex-ORM. For this use case we have the <code>destroy</code> action.</p><p>Via calling</p><pre class="language-javascript"><code><span class="token keyword">await</span> post<span class="token punctuation">.</span><span class="token function">$destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// or</span>
+<span class="token keyword">await</span> post<span class="token punctuation">.</span><span class="token function">$dispatch</span><span class="token punctuation">(</span><span class="token string">'destroy'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> id<span class="token punctuation">:</span> post<span class="token punctuation">.</span>id <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>the following GraphQL query is generated:</p><pre class="language-graphql"><code><span class="token keyword">mutation</span> DeletePost<span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  deletePost<span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">:</span> <span class="token variable">$id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    id
+    title
+    content
+    
+    user <span class="token punctuation">{</span>
+      id
+      email
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Variables:</p><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">42</span>
+<span class="token punctuation">}</span>
+</code></pre><h2 id="deleteanddestroy"><a href="#deleteanddestroy" aria-hidden="true" class="header-anchor">#</a> $deleteAndDestroy()</h2><p>You can also use the <code>$deleteAndDestroy()</code> action to delete the record from the store and from the server. It's just a
+short convenience method for <code>$delete()</code> and <code>$destroy()</code>.</p></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/vuex-orm-graphql/guide/push/" class="prev">
+          push
+        </a></span><span class="next"><a href="/vuex-orm-graphql/guide/connection-mode/">
+          Connection Mode
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/vuex-orm-graphql/assets/js/10.d14c2b78.js" defer></script><script src="/vuex-orm-graphql/assets/js/app.771954e2.js" defer></script>
+  </body>
+</html>

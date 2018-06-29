@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vuex-ORM GraphQL Plugin | Custom Queries and Mutations</title>
+    <meta name="description" content="Vue + Vuex-ORM + GraphQL = &lt;3">
+    
+    
+    <link rel="preload" href="/vuex-orm-graphql/assets/css/15.styles.d2dc8f35.css" as="style"><link rel="preload" href="/vuex-orm-graphql/assets/js/app.771954e2.js" as="script"><link rel="preload" href="/vuex-orm-graphql/assets/js/11.9823bc74.js" as="script"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/8.327cd365.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/1.73445dd3.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/2.75745038.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/3.fdbb96f5.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/4.862f292d.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/5.2ddccdc5.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/6.a1e53d7b.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/7.fe492acd.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/0.deb3bd5d.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/9.5ac8cfd9.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/10.d14c2b78.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/12.d11a4ffa.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/13.0c4d94ca.js"><link rel="prefetch" href="/vuex-orm-graphql/assets/js/14.3fd74dca.js">
+    <link rel="stylesheet" href="/vuex-orm-graphql/assets/css/15.styles.d2dc8f35.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/vuex-orm-graphql/" class="home-link router-link-active"><!----><span class="site-name">
+      Vuex-ORM GraphQL Plugin
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/vuex-orm-graphql/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vuex-orm-graphql/guide/" class="nav-link router-link-active">Guide</a></div><div class="nav-item"><a href="https://vuex-orm.github.io/vuex-orm/" target="_blank" rel="noopener noreferrer" class="nav-link">Vuex-ORM</a></div><div class="nav-item"><a href="https://github.com/vuex-orm/vuex-orm-graphql" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuex-orm-graphql/" class="nav-link">Home</a></div><div class="nav-item"><a href="/vuex-orm-graphql/guide/" class="nav-link router-link-active">Guide</a></div><div class="nav-item"><a href="https://vuex-orm.github.io/vuex-orm/" target="_blank" rel="noopener noreferrer" class="nav-link">Vuex-ORM</a></div><div class="nav-item"><a href="https://github.com/vuex-orm/vuex-orm-graphql" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a></div><!----></nav><ul class="sidebar-links"><li><a href="/vuex-orm-graphql/guide/" class="sidebar-link">Introduction</a></li><li><a href="/vuex-orm-graphql/guide/setup/" class="sidebar-link">Setup</a></li><li><a href="/vuex-orm-graphql/guide/graphql/" class="sidebar-link">GraphQL Schema</a></li><li><a href="/vuex-orm-graphql/guide/fetch/" class="sidebar-link">fetch</a></li><li><a href="/vuex-orm-graphql/guide/persist/" class="sidebar-link">persist</a></li><li><a href="/vuex-orm-graphql/guide/push/" class="sidebar-link">push</a></li><li><a href="/vuex-orm-graphql/guide/destroy/" class="sidebar-link">destroy</a></li><li><a href="/vuex-orm-graphql/guide/connection-mode/" class="sidebar-link">Connection Mode</a></li><li><a href="/vuex-orm-graphql/guide/custom-queries/" class="active sidebar-link">Custom Queries and Mutations</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/custom-queries/#model-related-custom-query" class="sidebar-link">Model related custom query</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/custom-queries/#model-unrelated-simple-query" class="sidebar-link">Model unrelated simple query</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/custom-queries/#model-related-custom-mutation" class="sidebar-link">Model related custom mutation</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/custom-queries/#model-unrelated-simple-mutation" class="sidebar-link">Model unrelated simple mutation</a></li><li class="sidebar-sub-header"><a href="/vuex-orm-graphql/guide/custom-queries/#multiple-or-single-record" class="sidebar-link">Multiple or single record</a></li></ul></li><li><a href="/vuex-orm-graphql/guide/relationships/" class="sidebar-link">Relationships</a></li><li><a href="/vuex-orm-graphql/guide/eager-loading/" class="sidebar-link">Eager Loading</a></li><li><a href="/vuex-orm-graphql/guide/virtual-fields/" class="sidebar-link">Virtual Fields</a></li><li><a href="/vuex-orm-graphql/guide/meta-fields/" class="sidebar-link">Meta Fields</a></li><li><a href="/vuex-orm-graphql/guide/faq/" class="sidebar-link">Frequently Asked Questions</a></li></ul></div><div class="page"><div class="content"><h1 id="custom-queries-and-mutations"><a href="#custom-queries-and-mutations" aria-hidden="true" class="header-anchor">#</a> Custom Queries and Mutations</h1><p></p><div class="table-of-contents"><ul><li><a href="#model-related-custom-query">Model related custom query</a></li><li><a href="#model-unrelated-simple-query">Model unrelated simple query</a></li><li><a href="#model-related-custom-mutation">Model related custom mutation</a></li><li><a href="#model-unrelated-simple-mutation">Model unrelated simple mutation</a></li><li><a href="#multiple-or-single-record">Multiple or single record</a></li></ul></div><p></p><p>With custom mutations and custom queries we distinguish between model related and model unrelated (simple) custom
+quries/mutations. The difference is that model related queries/mutations always are tied to a model, so Vuex-ORM-GraphQL
+expected that the query/mutation type is the same as the model. A model related custom mutation <code>upvotePost</code> is expected
+to be of type <code>Post</code>. To make this even clearer, all model related queries and mutations are called on a specific Model
+or a record of this model.</p><p>A simple query or simple mutation is not tied to a model. And so Vuex-ORM-GraphQL doesn't expect the result to be of a
+specific type. Also the return value is not automatically inserted in the Vuex store.</p><div class="warning custom-block"><p class="custom-block-title">WARNING</p><p>It's not a clean and good solution that the simple queries are also triggered via Vuex action, but currently the only
+way. This might be changed in the future, when we find a better solution.</p></div><h2 id="model-related-custom-query"><a href="#model-related-custom-query" aria-hidden="true" class="header-anchor">#</a> Model related custom query</h2><p>You may sometimes want to send custom GraphQL query. We support this via the <code>query</code> action. However please notice that
+the convenienceMethods here are named <code>customMutation</code> and <code>$customMutation</code> due to a name conflict with the <code>query()</code>
+method Vuex-ORM.</p><pre class="language-javascript"><code><span class="token keyword">const</span> post <span class="token operator">=</span> Post<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">await</span> post<span class="token punctuation">.</span><span class="token function">$customQuery</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'example'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// is the same as</span>
+<span class="token keyword">await</span> Post<span class="token punctuation">.</span><span class="token function">customQuery</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'example'</span><span class="token punctuation">,</span> filter<span class="token punctuation">:</span> <span class="token punctuation">{</span> id<span class="token punctuation">:</span> post<span class="token punctuation">.</span>id <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// or</span>
+<span class="token keyword">await</span> Post<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'query'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'example'</span><span class="token punctuation">,</span> filter<span class="token punctuation">:</span> <span class="token punctuation">{</span> id<span class="token punctuation">:</span> post<span class="token punctuation">.</span>id <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>As you can see you have to provide the query name and any further arguments you want to pass. In this case we send
+the post id, but this could be anything else. Please also notice that <code>record.$customQuery</code> automatically adds the id
+of the record into the arguments list. The plugin automatically determines if there are multiple records or a single
+record is returned by looking in the arguments hash if there is a <code>id</code> field and respectively setups the query.</p><p>A model related custom query is always tied to the model, so the plugin expects the return value of the custom query
+is of the model type. In this example that means, that Vuex-ORM-GraphQL expects that the <code>example</code> query is of type
+<code>Post</code>.</p><p>This generates the following query:</p><pre class="language-graphql"><code><span class="token keyword">mutation</span> Example<span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  example<span class="token punctuation">(</span><span class="token attr-name">post</span><span class="token punctuation">:</span> <span class="token variable">$id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    id
+    userId
+    content
+    title
+
+    user <span class="token punctuation">{</span>
+      id
+      email
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Variables:</p><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">42</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Like for all other operations, all records which are returned replace the respective existing records in the Vuex-ORM
+database.</p><p>Following fields are allowed:</p><ul><li><code>name</code>: Required. The name of the query.</li><li><code>filter</code>: Hash map with filters. These are passed as a filter typed variable like in fetch.</li><li><code>bypassCache</code>: Whether to bypass the caching.</li></ul><h2 id="model-unrelated-simple-query"><a href="#model-unrelated-simple-query" aria-hidden="true" class="header-anchor">#</a> Model unrelated simple query</h2><p>There might be cases when you just want to send a plan graphql query without having this plugin doing magic things.</p><p>Simple Queries allow to do that. Let's assume we do have a <code>status</code> query in our GraphQL API which let ask for the
+status of all subsystems:</p><pre class="language-javascript"><code><span class="token keyword">const</span> query <span class="token operator">=</span> <span class="token template-string"><span class="token string">`
+query status {
+  backend
+  smsGateway
+  paypalIntegration
+}`</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> result <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'entities/simpleQuery'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> query<span class="token punctuation">,</span> variables<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> bypassCache<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>The result contains a hash which is shaped like the request:</p><pre class="language-javascript"><code><span class="token punctuation">{</span>
+  backend<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  smsGateway<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  paypalIntegration<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Nothing is inserted in the Vuex store.</p><p>Following fields are allowed:</p><ul><li><code>query</code>: Required. The GraphQL query.</li><li><code>variables</code>: Variables to pass</li><li><code>bypassCache</code>: Whether to bypass the caching.</li></ul><h2 id="model-related-custom-mutation"><a href="#model-related-custom-mutation" aria-hidden="true" class="header-anchor">#</a> Model related custom mutation</h2><p>Along with the CRUD mutations you may want to send custom GraphQL mutations. We support this via the <code>mutate</code> action:</p><pre class="language-javascript"><code><span class="token keyword">const</span> post <span class="token operator">=</span> Post<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">await</span> post<span class="token punctuation">.</span><span class="token function">$mutate</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'upvotePost'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// is the same as</span>
+<span class="token keyword">await</span> Post<span class="token punctuation">.</span><span class="token function">mutate</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'upvotePost'</span><span class="token punctuation">,</span> args<span class="token punctuation">:</span> <span class="token punctuation">{</span> id<span class="token punctuation">:</span> post<span class="token punctuation">.</span>id <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// or</span>
+<span class="token keyword">await</span> Post<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'mutate'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'upvotePost'</span><span class="token punctuation">,</span> args<span class="token punctuation">:</span> <span class="token punctuation">{</span> id<span class="token punctuation">:</span> post<span class="token punctuation">.</span>id <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>As you can see you have to provide the mutation name and any further arguments you want to pass. In this case we send
+the post id, but this could be anything else. Please also notice that <code>record.$mutate</code> automatically adds the id
+of the record into the arguments list. The plugin automatically determines if there are multiple records or a single
+record is requests by looking in the arguments hash if there is a <code>id</code> field and respectively setups the query.</p><p>A model related custom mutation is always tied to the model, so the plugin expects the return value of the custom query
+is of the model type. In this example that means, that Vuex-ORM-GraphQL expects that the <code>upvotePost</code> mutation is of type
+<code>Post</code>.</p><p>This generates the following query:</p><pre class="language-graphql"><code><span class="token keyword">mutation</span> UpvotePost<span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">:</span> ID<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  upvotePost<span class="token punctuation">(</span><span class="token attr-name">post</span><span class="token punctuation">:</span> <span class="token variable">$id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    id
+    userId
+    content
+    title
+
+    user <span class="token punctuation">{</span>
+      id
+      email
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Variables:</p><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">42</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Like for all other operations, all records which are returned replace the respective existing records in the Vuex-ORM
+database.</p><p>Following fields are allowed:</p><ul><li><code>name</code>: Required. The name of the mutation.</li><li><code>args</code>: Hash map with arguments (variables).</li></ul><h2 id="model-unrelated-simple-mutation"><a href="#model-unrelated-simple-mutation" aria-hidden="true" class="header-anchor">#</a> Model unrelated simple mutation</h2><p>Like simple custom queries, you can also send simple custom mutations. The action (<code>simpleQuery</code>) stays the same.
+Let's assume we do have a <code>sendSms</code> mutation (this is a bad example, never setup your app like this please!) in our
+GraphQL API which let us send a SMS.</p><pre class="language-javascript"><code><span class="token keyword">const</span> query <span class="token operator">=</span> <span class="token template-string"><span class="token string">`
+mutation SendSms($to: string!, $text: string!) {
+  sendSms(to: $to, text: $text) {
+    delivered
+  }
+}`</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> result <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'entities/simpleQuery'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  query<span class="token punctuation">,</span>
+  variables<span class="token punctuation">:</span> <span class="token punctuation">{</span> to<span class="token punctuation">:</span> <span class="token string">'+4912345678'</span><span class="token punctuation">,</span> text<span class="token punctuation">:</span> <span class="token string">'GraphQL is awesome!'</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>The result contains a hash which is shaped like the request:</p><pre class="language-javascript"><code><span class="token punctuation">{</span>
+  sendSms<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    delivered<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Nothing is inserted in the Vuex store.</p><p>Following fields are allowed:</p><ul><li><code>query</code>: Required. The GraphQL mutation query.</li><li><code>variables</code>: Hash map with variables to pass.</li></ul><h2 id="multiple-or-single-record"><a href="#multiple-or-single-record" aria-hidden="true" class="header-anchor">#</a> Multiple or single record</h2><p>Vuex-ORM-GraphQL will determine automatically if a single record or a connection (multiple records) is returned by a
+query/mutation via checking your GraphQL Schema. How smart is this?</p></div><!----><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/vuex-orm-graphql/guide/connection-mode/" class="prev">
+          Connection Mode
+        </a></span><span class="next"><a href="/vuex-orm-graphql/guide/relationships/">
+          Relationships
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/vuex-orm-graphql/assets/js/11.9823bc74.js" defer></script><script src="/vuex-orm-graphql/assets/js/app.771954e2.js" defer></script>
+  </body>
+</html>
